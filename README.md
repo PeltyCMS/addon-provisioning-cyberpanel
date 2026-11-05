@@ -1,31 +1,42 @@
 # CyberPanel
 
-Official **PeltyCMS** `provisioning` WASM addon (`provisioning-cyberpanel`).
+Auto-provision CyberPanel from PeltyCMS orders
 
-## Install
+Official **provisioning module** for [PeltyCMS](https://github.com/MythicalLTD/PeltyCMS) — identifier `provisioning-cyberpanel`.
 
-1. Open Pelty Admin → Addons → Marketplace
-2. Set registry URL to `https://market.mythicalsystems.org/api/pelty/addons/registry.json`
-3. Download **CyberPanel**
+## Why this addon
 
-Marketplace: https://market.mythicalsystems.org/marketplace/product/provisioning-cyberpanel  
-Product ID (CI): `59`
+Providers who sell hosting, VPS, game panels or cloud and need auto-create on payment.
 
-## Develop
+## Features
 
-This repository is a git submodule of [MythicalLTD/PeltyCMS](https://github.com/MythicalLTD/PeltyCMS) at `extensions/addons/prov-cyberpanel`.
+- Create services on **CyberPanel** when the customer pays
+- Suspend, unsuspend and terminate follow the Pelty service lifecycle
+- Map Pelty products to packages / plans on the remote panel
+- API tokens stay in Pelty secrets
+- MythicCloud panel linking for authenticated installs
 
-```bash
-# from the PeltyCMS monorepo
-cargo xtask addons prov-cyberpanel
-```
+## How it works
 
-## Release (Mythic Marketplace)
+1. Install **CyberPanel** from the [Mythical marketplace](https://market.mythicalsystems.org/marketplace/product/provisioning-cyberpanel) (or Pelty Admin → Addons → Marketplace).
+2. Open Pelty Admin and enter your CyberPanel credentials in the addon settings.
+3. Attach it to the products / forms / login flows you care about.
+4. New orders and sign-ins use CyberPanel automatically.
 
-Same flow as [featherpanel-com/PterodactylPanelApi](https://github.com/featherpanel-com/PterodactylPanelApi):
+## Requirements
 
-1. Repo secrets: `MYTHIC_PRODUCT_ID`, `MYTHIC_RELEASE_TOKEN`
-2. Repo variable: `ADDON_DIR=prov-cyberpanel`
-3. Actions → **Release Addon** → Run workflow
+- A running PeltyCMS panel with WASM addons enabled
+- Valid CyberPanel API / OAuth / panel credentials (depending on the integration)
+- Outbound HTTPS from the panel to CyberPanel
 
-Publishes the packed `provisioning-cyberpanel.zip` via `MythicalLTD/.github/actions/publish-release@v1` and creates a GitHub Release.
+## Get it
+
+[CyberPanel on Mythical Marketplace](https://market.mythicalsystems.org/marketplace/product/provisioning-cyberpanel)
+
+Free official build. Source for this package lives in this repository.
+
+## Support
+
+- Marketplace product page: https://market.mythicalsystems.org/marketplace/product/provisioning-cyberpanel
+- PeltyCMS core: https://github.com/MythicalLTD/PeltyCMS
+- Issues for this addon: use this repo’s Issues tab
